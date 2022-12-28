@@ -9,8 +9,8 @@ function App() {
             <PageTitle title={'This is react-app'}/>
             <PageTitle title={'My Friends'}/>
             <Rating value={1}/>
-            <Accordion title={'One'}/>
-            <Accordion title={'Two'}/>
+            <Accordion title={'One'} collapsed={false}/>
+            <Accordion title={'Two'} collapsed={true}/>
             <Rating value={0}/>
             <Rating value={1}/>
             <Rating value={2}/>
@@ -21,7 +21,11 @@ function App() {
     );
 }
 
-function PageTitle(props: any) {
+type PageTitlePropsType = {
+    title: string;
+}
+
+function PageTitle(props: PageTitlePropsType) {
     return <h1>{props.title}</h1>
 }
 
