@@ -7,10 +7,12 @@ function App() {
     return (
         <>
 
-            <Accordion title={'One'} collapsed={false} />
-            <Accordion title={'Two'} collapsed={false} />
-            <Rating value={0} />
-            <Rating value={2} />
+            <Accordion title={'One'} />
+            <Accordion title={'Two'} />
+
+
+            <Rating />
+            <Rating />
         </>
     );
 }

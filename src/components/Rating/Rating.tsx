@@ -1,18 +1,22 @@
 import React, { useState } from "react";
 
-type RaitingPropsType = {
-    value: 0 | 1 | 2 | 3 | 4 | 5;
-}
-export function Rating(props: RaitingPropsType) {
+
+export function Rating() {
     let mass = [1, 2, 3, 4, 5];
+
+    const [value, setValue] = useState(0)
+
+    const onSelectValueHandler = (index: number) => {
+        setValue(index);
+    }
 
     return (
         <div>
             {mass.map((el, index) => {
-                if (props.value > index) {
-                    return <Star selected={true} />
+                if (value > index) {
+                    return <Star selected={true} onSelect={() => onSelectValueHandler(index + 1)} />
                 } else {
-                    return <Star selected={false} />
+                    return <Star selected={false} onSelect={() => onSelectValueHandler(index + 1)} />
                 }
             })}
         </div>
@@ -21,11 +25,12 @@ export function Rating(props: RaitingPropsType) {
 
 type StarPropsType = {
     selected: boolean;
+    onSelect: () => void
 }
 function Star(props: StarPropsType) {
     if (props.selected) {
-        return <span><b>star </b></span>
+        return <span onClick={() => props.onSelect()}><b>star </b></span>
     } else {
-        return <span>star </span>
+        return <span onClick={() => props.onSelect()}>star </span>
     }
 }
