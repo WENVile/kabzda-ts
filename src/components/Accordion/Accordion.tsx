@@ -29,9 +29,8 @@ function Accordion(props: AccordionPropsType) {
     const [collapsed, setCollapsed] = useState(false)
     return (
         <div>
-            {/* <button onClick={() => setCollapsed(!collapsed)}>Жмякни</button> */}
             <AccordionTitle onTitleClick={() => setCollapsed(!collapsed)} title={props.title} />
-            {!collapsed && <AccordionBody />}
+            {!collapsed &&  <AccordionBody />}
         </div>
     )
 
